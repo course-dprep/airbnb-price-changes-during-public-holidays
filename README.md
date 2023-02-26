@@ -38,6 +38,7 @@ This research could provide valuable insights for various stakeholders. For exam
 
 | Variables         | Description   |
 | -------------     | ------------- |
+| Price             | Room price in New York, Paris and Amsterdam is treated as predicted variable |
 | Dates             | The dates during Christmas, New Year and Easter: 22 December - 3 January & 6 April – 12 April |
 | City              | Three popular destinations during public holidays: New York, Paris and Amsterdam  |
 | Host_is_superhost | Whether the host is verified as super host|

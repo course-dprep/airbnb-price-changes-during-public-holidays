@@ -30,6 +30,18 @@ Airbnb is a well-known service that enables property owners to rent out their ho
 
 This research could provide valuable insights for various stakeholders. For example, this study will provide inspiration and ideas for Airbnb's hosts’ pricing strategies during the public holidays in 2023, potentially increasing their earnings. At the same time, tourists who plan to visit these cities on holidays are also able to get insight into the room prices and their accommodation expenditures through this study. Finally, the findings could also contribute to the academic literature on the relationship between holidays and tourism.
 
+**The research question is**: 
+*How does the Airbnb room price change in New York, Paris and Amsterdam  between Christmas and New Year and over the Easter period, and how does the price fluctuations on holidays  varis on room type, whether it is a super host, number of accommodates?*
+
+
+| Variables         | Description   |
+| -------------     | ------------- |
+| Dates             | The dates during Christmas, New Year and Easter: 22 December - 3 January & 6 April – 12 April |
+| City              | Three popular destinations during public holidays: New York, Paris and Amsterdam  |
+| Host_is_superhost | Whether the host is verified as super host|
+| Room_type         | If the room is "entire home/apt", "private room", "share room" or "hotel room" |
+| Accommodates      | Number of tenants that can be accommodated |
+
 
 
 ## Code snippet that dowloads data from the url. Filters fot the different variables and adds the collum of city name

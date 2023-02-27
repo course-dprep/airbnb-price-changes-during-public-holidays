@@ -59,7 +59,7 @@ library(dplyr)
 library("readr")
 
 ## URL example
-urls <- c("http://data.insideairbnb.com/the-netherlands/north-holland/amsterdam/2022-12-05/data/calendar.csv.gz", "http://data.insideairbnb.com/belgium/vlg/antwerp/2022-12-29/data/calendar.csv.gz", "http://data.insideairbnb.com/greece/attica/athens/2022-12-27/data/calendar.csv.gz")
+urls <- c("http://data.insideairbnb.com/the-netherlands/north-holland/amsterdam/2022-12-05/data/calendar.csv.gz", "http://data.insideairbnb.com/france/ile-de-france/paris/2022-12-10/data/listings.csv.gz", "http://data.insideairbnb.com/united-states/ny/new-york-city/2022-12-04/data/listings.csv.gz")
 
 ## downloads data in a new file
 

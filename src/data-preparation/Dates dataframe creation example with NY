@@ -1,3 +1,5 @@
+## Use this after the code snippet made in file named dowload_data
+
 ## Creates DF NY only first 100 observations
 df_subset_NY<- head(NY_calendar, 1000)
 

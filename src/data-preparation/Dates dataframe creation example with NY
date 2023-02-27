@@ -1,0 +1,10 @@
+## Creates DF NY only first 100 observations
+df_subset_NY<- head(NY_calendar, 1000)
+
+## Subsets the variables needed for analysis 
+df_subset_NY<-df_subset_NY%>%
+  select("listing_id", "price", "date")
+
+## Adjusts the rows and collums 
+df_subset_NY<-spread(df_subset_NY, date, price)
+View(df_subset_NY)

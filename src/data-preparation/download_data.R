@@ -25,17 +25,17 @@ for (i in 1:length(urls)) {
 }
 
 ## View Data 
-Paris_listing <- read.csv(gzfile("Paris_listing.csv.gz"), header = TRUE, sep = ",")
+Paris_listing <- read_csv(gzfile("Paris_listing.csv.gz"), header = TRUE, sep = ",")
 View(Paris_listing)
-Paris_calendar <- read.csv(gzfile("Paris_calendar.csv.gz"), header = TRUE, sep = ",")
+Paris_calendar <- read_csv(gzfile("Paris_calendar.csv.gz"), header = TRUE, sep = ",")
 View(Paris_calendar)
-Amsterdam_listing <- read.csv(gzfile("Amsterdam_listing.csv.gz"), header = TRUE, sep = ",")
+Amsterdam_listing <- read_csv(gzfile("Amsterdam_listing.csv.gz"), header = TRUE, sep = ",")
 View(Amsterdam_listing)
-Amsterdam_calendar <- read.csv(gzfile("Amsterdam_calendar.csv.gz"), header = TRUE, sep = ",")
+Amsterdam_calendar <- read_csv(gzfile("Amsterdam_calendar.csv.gz"), header = TRUE, sep = ",")
 View(Amsterdam_calendar)
-NY_listing <- read.csv(gzfile("NY_listing.csv.gz"), header = TRUE, sep = ",")
+NY_listing <- read_csv(gzfile("NY_listing.csv.gz"), header = TRUE, sep = ",")
 View(NY_listing)
-NY_calendar <- read.csv(gzfile("NY_calendar.csv.gz"), header = TRUE, sep = ",")
+NY_calendar <- read_csv(gzfile("NY_calendar.csv.gz"), header = TRUE, sep = ",")
 View(NY_calendar)
 
 

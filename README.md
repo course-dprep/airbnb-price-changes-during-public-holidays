@@ -33,7 +33,7 @@ This study specifically chose to analyze Airbnb prices during public holidays, s
 This research could provide valuable insights for various stakeholders. For example, this study will provide inspiration and ideas for Airbnb's hosts’ pricing strategies during the public holidays in 2023, potentially increasing their earnings. At the same time, tourists who plan to visit these cities on holidays are also able to get insight into the room prices and their accommodation expenditures through this study. Finally, the findings could also contribute to the academic literature on the relationship between holidays and tourism.
 
 **The research question is**: 
-*How does the Airbnb room price change in New York, Paris, and Amsterdam between Christmas and New Year and over the Easter period in 2023, and how does the price fluctuations on holidays vary depending on room type, superhost status, number of accommodates, and number of reviews?*
+*How does the Airbnb room price change in New York, Paris, and Amsterdam between Christmas and New Year and over the Easter period in 2023, and how does the price fluctuations on holidays vary depending on room type, superhost status, number of accommodates?*
 
 
 | Variables         | Description   |
@@ -44,4 +44,4 @@ This research could provide valuable insights for various stakeholders. For exam
 | Host_is_superhost | Whether the host is verified as super host|
 | Room_type         | If the room is "entire home/apt", "private room", "share room" or "hotel room" |
 | Accommodates      | Number of tenants that can be accommodated |
-| Reviews           | Number of reviews linked to the listing_id |
+

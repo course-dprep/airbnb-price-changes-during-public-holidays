@@ -37,9 +37,9 @@ calendar$date <- as.Date(Calendar$date)
 ## Add groups Group 1 New years, Group 2 Easter, Group 3 other
 calendar<- calendar %>%
   mutate(group = case_when(
-    between(date, as.Date("2022-12-23"), as.Date("2022-12-27")) ~ "1",
-    between(date, as.Date("2022-12-29"), as.Date("2023-01-03")) ~ "2",
-    between(date, as.Date("2023-04-12"), as.Date("2023-04-16")) ~ "3",
+    between(date, as.Date("2022-12-24"), as.Date("2022-12-26")) ~ "1",
+    between(date, as.Date("2022-12-28"), as.Date("2023-01-02")) ~ "2",
+    between(date, as.Date("2023-04-07"), as.Date("2023-04-10")) ~ "3",
     TRUE ~ "4"
   )) 
 

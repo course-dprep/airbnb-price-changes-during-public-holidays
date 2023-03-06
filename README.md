@@ -11,7 +11,6 @@ The aim of this research is to investigate the effects of 3 public holidays (Chr
 
 Accordingly, this study could provide Airbnb hosts with pricing strategies during public holidays, which could potentially lead to increased earnings for them. On the other hand, the study could prove to be useful to tourists themselves, as they might be able to observe certain price increases or price differences between listings and the drivers behind the variations or price surges. Lastly, the analysis could become a basis for future academic research or integration in academic literature on the relationship between holidays and tourism.
 
-
 **The research question is**: 
 *How does the Airbnb room price change in New York, Paris, and Amsterdam between Christmas and New Year and over the Easter period in 2023, and how does the price fluctuations on holidays vary depending on room type, superhost status, number of people that can be accommodated?*
 

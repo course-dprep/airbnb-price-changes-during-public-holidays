@@ -6,6 +6,7 @@ library(readr)
 # Modify the calendar file for three cities
 ##Data subset with the variables of listing_id,date and price from NY_calendar, Amsterdam_calendar and Paris_calendar
 NY_calendar_new <- NY_calendar %>% 
+  mutate(date=as.Date(date)) %>% 
   group_by(listing_id) %>%
   filter((date >= "2022-12-04" & date <= "2023-01-03") |
            (date >= "2023-04-06" & date <= "2023-04-12")) %>% 
@@ -13,6 +14,7 @@ NY_calendar_new <- NY_calendar %>%
 NY_calendar_new <- NY_calendar_new[order(NY_calendar_new$listing_id),]
 
 Paris_calendar_new <- Paris_calendar %>%
+  mutate(date=as.Date(date)) %>% 
   group_by(listing_id) %>%
   filter((date >= "2022-12-04" & date <= "2023-01-03") |
            (date >= "2023-04-06" & date <= "2023-04-12")) %>% 
@@ -20,6 +22,7 @@ Paris_calendar_new <- Paris_calendar %>%
 Paris_calendar_new<- Paris_calendar_new[order(Paris_calendar_new$listing_id),]
 
 Amsterdam_calendar_new <- Amsterdam_calendar %>%
+  mutate(date=as.Date(date)) %>% 
   group_by(listing_id) %>%
   filter((date >= "2022-12-04" & date <= "2023-01-03") |
            (date >= "2023-04-06" & date <= "2023-04-12")) %>% 

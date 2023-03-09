@@ -54,7 +54,7 @@ calendar<- NY_calendar_new%>%
 
 ## Filter calendar 
 calendar<- calendar%>%
-  select(listing_id,date,price)
+  select(listing_id,date,price,city)
 
 ## Shows classes variables
 class(calendar$date)

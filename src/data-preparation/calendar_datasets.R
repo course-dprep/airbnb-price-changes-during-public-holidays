@@ -29,7 +29,7 @@ NY_calendar$date <- as.Date(NY_calendar$date)
 Amsterdam_calendar$date <- as.Date(Amsterdam_calendar$date)
 Paris_calendar$date <- as.Date(Paris_calendar$date)
 
-## Add groups Group 1 New years, Group 2 Easter, Group 3 other
+## Add Groups - Group 1: Christmas, Group 2: New Years, Group 3: Easter, Group 4: Other
 NY_calendar<- NY_calendar %>%
   mutate(group = case_when(
     between(date, as.Date("2022-12-23"), as.Date("2022-12-27")) ~ "1",
@@ -38,7 +38,7 @@ NY_calendar<- NY_calendar %>%
     TRUE ~ "4"
   )) 
 
-## Add groups Group 1 New years, Group 2 Easter, Group 3 other
+## Add Groups - Group 1: Christmas, Group 2: New Years, Group 3: Easter, Group 4: Other
 Amsterdam_calendar<- Amsterdam_calendar %>%
   mutate(group = case_when(
     between(date, as.Date("2022-12-23"), as.Date("2022-12-27")) ~ "1",

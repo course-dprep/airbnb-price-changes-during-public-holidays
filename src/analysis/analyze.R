@@ -1,11 +1,23 @@
-# load 
-load("./gen/analysis/input/data_cleaned.RData")
+#setup
+library(readr)
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
 
-# Estimate model 1 
-m1 <- lm(V1 ~ V3 + V4,df_cleaned)
+# Load the dataset for each city
+Paris_dataset <- read_csv("../../src/data-preparation/Paris_dataset.csv")
+Amsterdam_dataset<- read_csv("../../src/data-preparation/Amsterdam_dataset.csv")
+NY_dataset<-read_csv("../../src/data-preparation/NY_dataset.csv")
 
-# Estimate model 2 
-m2 <- lm(V1 ~ V3 + V4 + V5 , df_cleaned)
+# 
+Paris_model <- lm(price ~ group*host_is_superhost + group*accommodates + group*room_type, data =Paris_dataset)
+Paris_result<- anova(Paris_model)
+Paris_result
 
-# Save results
-save(m1,m2,file="./gen/analysis/output/model_results.RData")
+Amsterdam_model <- lm(price ~ group*host_is_superhost + group*accommodates + group*room_type, data =Amsterdam_dataset)
+Amsterdam_result<- anova(Amsterdam_model)
+Amsterdam_result
+
+NY_model<- lm(price ~ group*host_is_superhost + group*accommodates + group*room_type, data =NY_dataset)
+NY_result<-anova(NY_model)
+NY_result

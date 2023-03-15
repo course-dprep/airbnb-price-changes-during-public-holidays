@@ -1,6 +1,3 @@
-## Create data directory
-dir.create("./data/original datasets")
-
 ## Load libraries
 library(tidyverse)
 library(dplyr)
@@ -21,11 +18,7 @@ names <- c("Paris_listing", "Paris_calendar", "Amsterdam_listing", "Amsterdam_ca
 
 ## Loop through URLs
 for (i in 1:length(urls)) {
-  download.file(urls[i], paste0("data/original datasets/", names[i], ".csv.gz"), mode = "wb")
+  download.file(urls[i], paste0(names[i], ".csv.gz"), mode = "wb")
 }
-
-
-
-
 
 

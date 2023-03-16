@@ -1,4 +1,5 @@
 library(dplyr)
+library(readr)
 
 # Set up file paths and city names
 file_paths <- c("../../gen/data-preparation/temp/Paris_calendar.csv",
@@ -27,7 +28,6 @@ for (i in seq_along(city_names)) {
   dataset <- calendar_data[[i]] %>%
     inner_join(listing_data[[city]] %>% select(id, host_is_superhost, room_type, accommodates), 
                by = c("listing_id" = "id")) %>%
-    select(listing_id, date, price, city, host_is_superhost, room_type, accommodates)
     mutate(accommodates_dummy = ifelse(accommodates > 10, 1, 0))
   write_csv(dataset, paste0('../../gen/data-preparation/output/', city, "_dataset.csv"))
 }

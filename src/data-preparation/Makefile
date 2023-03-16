@@ -3,7 +3,7 @@ TEMP=../../gen/temp
 DP=../../src/data-preparation
 OUTPUT=../../gen/output
 
-all: install_packages $(OUTPUT)/download_data NY_calendar.csv Amsterdam_calendar.csv Paris_calendar.csv Paris_dataset.csv Amsterdam_dataset.csv NY_dataset.csv
+all: install_packages $(DATA)/download_data NY_calendar.csv Amsterdam_calendar.csv Paris_calendar.csv Paris_dataset.csv Amsterdam_dataset.csv NY_dataset.csv
 
 Paris_dataset.csv Amsterdam_dataset.csv NY_dataset.csv: city_dataset.R
 		R --vanilla < city_dataset.R 

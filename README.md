@@ -21,7 +21,7 @@ This study chose to analyze Airbnb prices during public holidays, such as Christ
 
 
 ## Research method
-The data was downloaded from the [Inside Airbnb website] (http://insideairbnb.com/get-the-data). Accordinglt, the calendar and reviews csv files were downloaded into R for Amsterdam, Paris and New York. ANOVA was chosen as an appropriate analysis method as we are looking for a causal/dependence relationship between listings prices during Easter, Christmas and New Year's, and how these price fluctiations vary depending on the type of room, superhosy status and the number of people that can be accomodated.
+The data was downloaded from the Inside Airbnb website (http://insideairbnb.com/get-the-data). Accordinglt, the calendar and reviews csv files were downloaded into R for Amsterdam, Paris and New York. ANOVA was chosen as an appropriate analysis method as we are looking for a causal/dependence relationship between listings prices during Easter, Christmas and New Year's, and how these price fluctiations vary depending on the type of room, superhosy status and the number of people that can be accomodated.
 
 ##Relevance of analysis/Future applications
 This research could provide valuable insights for various stakeholders. For example, this study will provide inspiration and ideas for Airbnb's hosts’ pricing strategies during the public holidays in 2023, potentially increasing their earnings. At the same time, tourists who plan to visit these cities on holidays are also able to get insight into the room prices and their accommodation expenditures through this study. Finally, the findings could also contribute to the academic literature on the relationship between holidays and tourism.

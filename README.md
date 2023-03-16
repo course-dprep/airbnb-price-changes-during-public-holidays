@@ -27,7 +27,8 @@ The data was downloaded from the [Inside Airbnb website] (http://insideairbnb.co
 This research could provide valuable insights for various stakeholders. For example, this study will provide inspiration and ideas for Airbnb's hosts’ pricing strategies during the public holidays in 2023, potentially increasing their earnings. At the same time, tourists who plan to visit these cities on holidays are also able to get insight into the room prices and their accommodation expenditures through this study. Finally, the findings could also contribute to the academic literature on the relationship between holidays and tourism.
 
 ##Repository overview
-- .github
+- data
+  - original datasets
 - src
   - analysis
   - data-preparation
@@ -44,7 +45,7 @@ install.packages("tidyverse")
 #Cloning the repository
 1. Open GitBash
 2. Change the working directory to your preferred location
-3. Type git clone :
+3. Type git clone (still need to add the link)
 #Running the makefile
 1. Change working directory to airbnb-price-changes-during-public-holidays
 2. Type make 

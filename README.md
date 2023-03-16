@@ -31,7 +31,6 @@ This research could provide valuable insights for various stakeholders. For exam
 - src
   - analysis
   - data-preparation
-  - price-calculator-app
 - .gitignore
 - README.md
 - makefile

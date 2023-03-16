@@ -18,7 +18,7 @@ for (i in seq_along(file_paths)) {
 listing_data <- list()
 
 for (city in city_names) {
-  listing_data[[city]] <- read_csv(gzfile(paste0("../../data/original_datasets/", city, "_listing.csv.gz")), col_names = TRUE)
+  listing_data[[city]] <- read_csv(gzfile(paste0("../../data/", city, "_listing.csv.gz")), col_names = TRUE)
 }
 
 # Combine the calendar and listing data for each city and write the resulting dataset to a csv file

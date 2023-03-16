@@ -11,12 +11,6 @@ NY_calendar.csv Amsterdam_calendar.csv Paris_calendar.csv: calendar_datasets.R
 		R --vanilla < calendar_datasets.R 
 $(DATA)/download_data: download_data.R 
 		R --vanilla < download_data.R 
-		mv Paris_listing.csv.gz ../../data/original_datasets
-		mv Paris_calendar.csv.gz ../../data/original_datasets
-		mv Amsterdam_listing.csv.gz ../../data/original_datasets
-		mv Amsterdam_calendar.csv.gz ../../data/original_datasets
-		mv NY_listing.csv.gz ../../data/original_datasets
-		mv NY_calendar.csv.gz ../../data/original_datasets
 
 install_packages: install_packages.R
 		R --vanilla install.packages.R

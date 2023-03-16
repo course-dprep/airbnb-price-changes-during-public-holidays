@@ -18,7 +18,7 @@ for (i in seq_along(file_paths)) {
 listing_data <- list()
 
 for (city in city_names) {
-  listing_data[[city]] <- read_csv(gzfile(paste0("../../data/original_datasets/", city, "_listing.csv.gz")), col_names = TRUE)
+  listing_data[[city]] <- read_csv(gzfile(paste0("../../data/", city, "_listing.csv.gz")), col_names = TRUE)
 }
 
 # Combine the calendar and listing data for each city and write the resulting dataset to a csv file
@@ -28,6 +28,7 @@ for (i in seq_along(city_names)) {
     inner_join(listing_data[[city]] %>% select(id, host_is_superhost, room_type, accommodates), 
                by = c("listing_id" = "id")) %>%
     select(listing_id, date, price, city, host_is_superhost, room_type, accommodates)
+    mutate(accommodates_dummy = ifelse(accommodates > 10, 1, 0))
   write_csv(dataset, paste0('../../gen/data-preparation/output/', city, "_dataset.csv"))
 }
  

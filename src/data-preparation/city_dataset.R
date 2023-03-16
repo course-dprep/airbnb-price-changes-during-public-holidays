@@ -28,6 +28,7 @@ for (i in seq_along(city_names)) {
     inner_join(listing_data[[city]] %>% select(id, host_is_superhost, room_type, accommodates), 
                by = c("listing_id" = "id")) %>%
     select(listing_id, date, price, city, host_is_superhost, room_type, accommodates)
+    mutate(accommodates_dummy = ifelse(accommodates > 10, 1, 0))
   write_csv(dataset, paste0('../../gen/data-preparation/output/', city, "_dataset.csv"))
 }
  

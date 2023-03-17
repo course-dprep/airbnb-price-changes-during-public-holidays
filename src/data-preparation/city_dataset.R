@@ -28,7 +28,7 @@ for (i in seq_along(city_names)) {
   dataset <- calendar_data[[i]] %>%
     inner_join(listing_data[[city]] %>% select(id, host_is_superhost, room_type, accommodates), 
                by = c("listing_id" = "id")) %>%
-    mutate(accommodates_dummy = ifelse(accommodates > 10, 1, 0))
+    mutate(accommodates = ifelse(accommodates > 10, 1, 0))
   write_csv(dataset, paste0('../../gen/data-preparation/output/', city, "_dataset.csv"))
 }
  

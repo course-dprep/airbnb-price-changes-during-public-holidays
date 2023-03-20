@@ -5,7 +5,7 @@ library(dplyr)
 cities <- c("NY", "Amsterdam", "Paris")
 for (city in cities) {
   print(city)
-  df <- read_csv(gzfile(paste0("../../data/", city, "_calendar.csv.gz")), col_names = TRUE, n_max = 10000)
+  df <- read_csv(gzfile(paste0("../../data/", city, "_calendar.csv.gz")), col_names = TRUE, n_max = 100000)
   df <- df %>% mutate(city=city) %>% select(listing_id,date,price,city)
   df$price <- as.numeric(gsub("\\$", "", df$price))
   df <- na.omit(df)

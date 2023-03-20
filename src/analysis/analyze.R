@@ -29,7 +29,7 @@ for (city_name in names(city_datasets)) {
 
 
 # print the results
-View(result)
+result
 
 write_csv(result, paste0('../../gen/analysis/output/',"anova_result.csv"))
 

@@ -2,6 +2,8 @@
 library(tidyverse)
 library(dplyr)
 
+dir.create("../../data")
+
 ## Load the URLs
 options(timeout = max(1000, getOption("timeout")))
 urls <- c(
@@ -18,6 +20,6 @@ names <- c("Paris_listing", "Paris_calendar", "Amsterdam_listing", "Amsterdam_ca
 
 for (i in 1:length(urls)) {
   download.file(urls[i], paste0("../../data/", names[i], ".csv.gz"), mode = "wb")
-  }
+}
   
 

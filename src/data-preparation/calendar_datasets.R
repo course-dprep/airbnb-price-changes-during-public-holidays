@@ -1,12 +1,12 @@
 library(tidyverse)
 library(dplyr)
 
-dir.create("./gen/data-preparation/temp/", recursive = TRUE)
+dir.create("../../gen/data-preparation/temp/", recursive = TRUE)
 
 cities <- c("NY", "Amsterdam", "Paris")
 for (city in cities) {
   print(city)
-  df <- read_csv(gzfile(paste0("./data/", city, "_calendar.csv.gz")), col_names = TRUE, n_max = 1000)
+  df <- read_csv(gzfile(paste0("../../data/", city, "_calendar.csv.gz")), col_names = TRUE, n_max = 1000)
   df <- df %>% mutate(city=city) %>% select(listing_id,date,price,city)
   df$price <- as.numeric(gsub("[^0-9.]", "", df$price))
   df <- na.omit(df)
@@ -18,5 +18,5 @@ for (city in cities) {
       between(date, as.Date("2023-04-12"), as.Date("2023-04-16")) ~ "3",
       TRUE ~ "4"
     ))
-  write_csv(df, paste0('./gen/data-preparation/temp/', city, "_group_calendar.csv"))
+  write_csv(df, paste0('../../gen/data-preparation/temp/', city, "_group_calendar.csv"))
 }

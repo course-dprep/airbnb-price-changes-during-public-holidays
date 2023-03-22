@@ -4,7 +4,7 @@ library(readr)
 dir.create("../../gen/data-preparation/output", recursive = TRUE)
 
 # Set up file paths and city names
-file_paths <- c("'../../gen/data-preparation/temp/Paris_group_calendar.csv",
+file_paths <- c("../../gen/data-preparation/temp/Paris_group_calendar.csv",
                 "../../gen/data-preparation/temp/Amsterdam_group_calendar.csv",
                 "../../gen/data-preparation/temp/NY_group_calendar.csv")
 

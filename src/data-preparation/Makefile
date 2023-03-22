@@ -11,7 +11,7 @@ $(TEMP)/Paris_dataset.csv $(TEMP)/Amsterdam_dataset.csv $(TEMP)/NY_dataset.csv: 
 $(TEMP)/NY_group_calendar.csv $(TEMP)/Amsterdam_group_calendar.csv $(TEMP)/Paris_group_calendar.csv: $(DATA)/NY_calendar.csv $(DATA)/Amsterdam_calendar.csv $(DATA)/Paris_calendar.csv $(DP)/calendar_datasets.R
 		R --vanilla < $(DP)/calendar_datasets.R 
 
-$(DATA)/NY_calendar.csv $(DATA)/Amsterdam_calendar.csv $(DATA)/Paris_calendar.csv $(DATA)/Paris_listingcsv $(DATA)/Amsterdam_listing.csv $(DATA)/NY_listing.csv: $(DP)/download_data.R 
+$(DATA)/NY_calendar.csv $(DATA)/Amsterdam_calendar.csv $(DATA)/Paris_calendar.csv $(DATA)/Paris_listing.csv $(DATA)/Amsterdam_listing.csv $(DATA)/NY_listing.csv: $(DP)/download_data.R 
 		R --vanilla < $(DP)/download_data.R 
 
 $(DP)install_packages: $(DP)install_packages.R

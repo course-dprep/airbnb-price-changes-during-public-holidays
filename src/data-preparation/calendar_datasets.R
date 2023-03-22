@@ -1,7 +1,7 @@
 library(tidyverse)
 library(dplyr)
 
-dir.create("../../gen/data-preparation/temp")
+dir.create("../../gen/data-preparation/temp/", recursive = TRUE)
 
 cities <- c("NY", "Amsterdam", "Paris")
 for (city in cities) {

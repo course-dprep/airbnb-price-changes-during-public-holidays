@@ -4,6 +4,9 @@ library(tidyverse)
 library(dplyr)
 library(ggplot2)
 
+# dir creation
+dir.create("../../gen/analysis/", recursive = TRUE)
+
 # Load the dataset for each city ../../gen/data-preparation/output/
 Paris_dataset <- read_csv("../../gen/data-preparation/output/Paris_dataset.csv")
 Amsterdam_dataset<- read_csv("../../gen/data-preparation/output/Amsterdam_dataset.csv")
@@ -31,6 +34,8 @@ for (city_name in names(city_datasets)) {
 # print the results
 result
 
-write_csv(result, paste0('../../gen/analysis/output/',"anova_result.csv"))
+write_csv(result, paste0('../../gen/analysis/',"anova_result.csv"))
+
+
 
 

@@ -74,20 +74,28 @@ Regarding the New York dataset, when looking at the interaction between the grou
   For the main research question whether prices fluctuate in holidays compared to normal days, ANOVA table shows there is indeed *a significant difference between holidays and normal days* because of a very small p-value with 0.001. Moreover, the Airbnb prices also *significantly differ between whether the host is a superhost, the number of people that can be accommodates and the type of rooms*, which are concluded from their much smaller p-values compared with 0.05. 
 
 ## Other visualizations
+### Number of listings per city
+![plot](https://raw.githubusercontent.com/edinescu/fork-price-change-public-holidays/master/nr%20of%20rooms.png)
+The bar chart highlights a difference in the number of listings in each city, with Amsterdam having the lowest number of listings. On the other end, Paris has the highest number of listings and New York falls in between the two in terms of the number of listings.
+
 ### Listings Made by a Super Host
 Being a 'Super Host' on Airbnb is typically a positive indicator to potential customers as the listing can be trusted due to a number of factors, including previous positive experiences by other customers, a high response rate, among others.
-[plots] 
+
+![plots](https://raw.githubusercontent.com/edinescu/fork-price-change-public-holidays/master/superhost.png) 
 The number of listings that are made by a super host in each city evidently make up just a fraction of the total number of listings, which is as expected as the super host tag is only awarded to the most reputable hosts on the platform. Interestingly, the percentage of listings made by super hosts in Amsterdam and New York is approximately 20% of the total listings, whereas in Paris, this percentage is relatively lower.
 
 ### The Number of Guests
 The number of guests that a particular Airbnb can accommodate is also relevant to potential consumers when searching on the platform.
-[plots]
-*conclusion on nr of guests*
-
-
+![plots](https://raw.githubusercontent.com/edinescu/fork-price-change-public-holidays/master/nr%20of%20accommodates.png) 
+The histograms indicate that a majority of listings, across the three cities, can accommodate less than 5 guests. There are listings, however, that are able to host larger groups, especially in New York compared to Amsterdam and Paris.
 ## Conclusions
-The main conclusion that can be drawn from the analyses is that Christmas, New Year's and Easter significantly impact the prices of rooms in Amsterdam, Paris and New York. Furthermore, the superhost status, the type of room and the number of people that can be accommodated all impact the prices of Airbnb rooms. However, this impact is not significant during the 3 holiday periods, therefore the prices do not fluctate due to the influence of room type, the superhost status and the number of people that can be accommodated.
-
+The main conclusions that can be drawn from our analyses, and that consumers can take into account when choosing to go to Paris, New York or Amsterdam are: 
+- Christmas, New Year's and Easter *significantly* impact the prices of rooms in Amsterdam, Paris and New York.
+- The superhost status, the type of room and the number of people that can be accommodated *all impact* the prices of Airbnb rooms. 
+- The aforementioned impact is *not significant* during the 3 holiday periods, therefore the prices do not fluctate due to the influence of room type, the superhost status and the number of people that can be accommodated. 
+- Paris has the highest number of listings.
+- New York has the highest number of superhosts
+- On average, New York is able to accommodate bigger group (>5 people) compared to Amsterdam and Paris
 
 
 ------------------------------------------------------------------

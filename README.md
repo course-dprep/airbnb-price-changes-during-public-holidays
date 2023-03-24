@@ -28,7 +28,16 @@ This study could provide Airbnb hosts with pricing strategies during public holi
 # 5.Repository overview
 - src
   - analysis
+    -  makefile
+    - analyze.R
   - data-preparation
+    - makefile
+    - calendar_datasets.R
+    - city_datasets.R
+    - data_exploration.Rmd
+    - data_exploration.pdf
+    - download_data.R
+    - install.packages.R
   - clean-up.R
 - .gitignore
 - README.md

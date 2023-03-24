@@ -97,7 +97,6 @@ The main conclusions that can be drawn from our analyses, and that consumers can
 - New York has the highest number of superhosts
 - On average, New York is able to accommodate bigger group (>5 people) compared to Amsterdam and Paris
 
-
 ------------------------------------------------------------------
 **Data Preparation & Workflow Management - Team 2**:
 - Yufan Wang (y.wang_34@tilburguniversity.edu)

@@ -94,11 +94,10 @@ The main conclusions that can be drawn from our analyses, and that consumers can
 - The superhost status, the type of room and the number of people that can be accommodated *all impact* the prices of Airbnb rooms. 
 - The aforementioned impact is *not significant* during the 3 holiday periods, therefore the prices do not fluctate due to the influence of room type, the superhost status and the number of people that can be accommodated. 
 - Paris has the highest number of listings.
-- New York has the highest number of superhosts
-- On average, New York is able to accommodate bigger group (>5 people) compared to Amsterdam and Paris
+- New York has the highest number of superhosts.
+- On average, New York is able to accommodate bigger group (>5 people) compared to Amsterdam and Paris.
 
-------------------------------------------------------------------
-**Data Preparation & Workflow Management - Team 2**:
+## Data Preparation & Workflow Management - Team 2
 - Yufan Wang (y.wang_34@tilburguniversity.edu)
 - Bas van Houten (b.a.vanhouten@tilburguniversity.edu)
 - Karan Lalchandani (k.j.lalchandani@tilburguniversity.edu)

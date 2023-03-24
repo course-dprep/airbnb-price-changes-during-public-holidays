@@ -56,8 +56,10 @@ install.packages("ggplot2")
 
 ## 8.Interpretation of results & Conclusions
 ## Results and Interpretation per city
-The ANOVA outputs can be found below:
+The ANOVA outputs can be found below with interpretations per city
 # Paris
+![Paris ANOVA](https://drive.google.com/drive/folders/1Qaco1TWaKcfbimU98Naz0SlZv23u4Lcg)
+
 We will turn our attention to the significance column (`Pr(>F)`), as it is the measure that will show the evidence of our hypothesis (the price fluctuations vary across the number of people that can be accommodates, the type of room and whether the host_is_a-superhost). 
 The first thing we notice is that the output shows that prices fluctuate during the holiday periods, at the p-value of the `group` variable shows significance (<0.05). Furthermore, by looking at the significance levels of `host_is_superhost`, `accomodates` and `room_type`, we can conclude that they all influence prices, as their p-values are very close to 0 (<0.0001). However, when turning our attention to their interaction with the holiday periods, there is *no significance, therefore there is no evidence suggesting that these characteristics, during holidays, influence the prices of Airbnb rooms*. 
 # Amsterdam
@@ -81,7 +83,7 @@ The number of guests that a particular Airbnb can accommodate is also relevant t
 
 
 ## Conclusions
-
+The 
 ------------------------------------------------------------------
 **Data Preparation & Workflow Management - Team 2**:
 - Yufan Wang (y.wang_34@tilburguniversity.edu)

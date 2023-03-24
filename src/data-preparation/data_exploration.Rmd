@@ -1,0 +1,235 @@
+---
+title: "Exploring the InsideAirbnb Data for Amsterdam, Paris & New York"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo = FALSE,
+	message = FALSE,
+	warning = FALSE,
+	fig.cap = TRUE
+)
+```
+
+```{r load_packages, message=FALSE, warning=FALSE, include=FALSE}
+# Load packages 
+library(dplyr)
+library(tidyverse)
+library(ggplot2)
+library(knitr)
+library(gridExtra)
+library(kableExtra)
+```
+
+```{r import_data, message=FALSE, warning=FALSE, include=FALSE}
+# Load the datasets
+Paris_listing <- read_csv(gzfile("../../data/Paris_listing.csv.gz"))
+Amsterdam_listing <- read_csv(gzfile("../../data/Amsterdam_listing.csv.gz"))
+NY_listing <- read_csv(gzfile("../../data/NY_listing.csv.gz"))
+Paris_calendar <- read_csv(gzfile("../../data/Paris_calendar.csv.gz"))
+Amsterdam_calendar <- Paris_calendar <- read_csv(gzfile("../../data/Amsterdam_calendar.csv.gz"))
+NY_calendar <- Paris_calendar <- read_csv(gzfile("../../data/NY_calendar.csv.gz"))
+```
+
+## Introduction
+
+This study provides an analysis of the fluctuations of price during select major holidays, in combination with other variables, on Airbnb listings in Amsterdam, Paris, and New York. This initial report serves as an exploration of the raw data in the datasets for each city by going through some of the key variables.
+
+### The Interaction Between Price and Review Rating
+
+The price and reviews of an Airbnb listing are often one of the first things potential customers check when browsing the website. As such, these scatter plots provide an overview of the interaction between both variables in each city, specifically by checking the average review rating for listings in each price category.
+
+```{r price_reviews, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="In Paris and New York, the listings in the lowest price range tend to have lower average review ratings than the higher price ranges. Moreover, a slight dip in the average review rating is observed for listings in the middle price ranges for both cities. In Amsterdam, however, the scatter plot indicates that the average rating is consistently high across all of the price ranges until $900. Interestingly, all three cities experience a dip in the average rating for listings priced above $900.", fig.show="inline", fig.width = 6, fig.height = 4}
+
+# Set the price to numeric
+Amsterdam_listing$price <- as.numeric(gsub("\\$", "", Amsterdam_listing$price))
+Paris_listing$price <- as.numeric(gsub("\\$", "", Paris_listing$price))
+NY_listing$price <- as.numeric(gsub("\\$", "", NY_listing$price))
+
+# Define the Price Groups for Paris
+Paris_listing$price_group <- cut(as.numeric(Paris_listing$price), 
+                                 breaks = c(0, 100, 200, 300, 400, 500, 600, 700, 800, 900, Inf), 
+                                 labels = c("0-100", "100-200", "200-300", "300-400", "400-500", "500-600", "600-700", "700-800", "800-900", "900+")) 
+
+# Define the Price Groups for Amsterdam
+Amsterdam_listing$price_group <- cut(as.numeric(Amsterdam_listing$price), 
+                                 breaks = c(0, 100, 200, 300, 400, 500, 600, 700, 800, 900, Inf), 
+                                 labels = c("0-100", "100-200", "200-300", "300-400", "400-500", "500-600", "600-700", "700-800", "800-900", "900+"))
+
+# Define the Price Groups for New York 
+NY_listing$price_group <- cut(as.numeric(NY_listing$price), 
+                                 breaks = c(0, 100, 200, 300, 400, 500, 600, 700, 800, 900, Inf), 
+                                 labels = c("0-100", "100-200", "200-300", "300-400", "400-500", "500-600", "600-700", "700-800", "800-900", "900+"))
+
+# Scatter plot for Paris 
+paris_scatter <- ggplot(data = Paris_listing %>% 
+                           group_by(price_group) %>% 
+                           summarise(avg_rating = mean(review_scores_rating, na.rm = TRUE)), 
+                        aes(x = price_group, y = avg_rating)) +
+  geom_point() +
+  theme_bw() +
+  labs(title = "Review Distribution by Price in Paris", x = "Price Group", y = "Average Rating")
+
+# Scatter plot for Amsterdam 
+ams_scatter <- ggplot(data = Amsterdam_listing %>% 
+                           group_by(price_group) %>% 
+                           summarise(avg_rating = mean(review_scores_rating, na.rm = TRUE)), 
+                        aes(x = price_group, y = avg_rating)) +
+  geom_point() +
+  theme_bw() +
+  labs(title = "Review Distribution by Price in Amsterdam", x = "Price Group", y = "Average Rating")
+
+# Scatter plot for New York  
+ny_scatter <- ggplot(data = NY_listing %>% 
+                           group_by(price_group) %>% 
+                           summarise(avg_rating = mean(review_scores_rating, na.rm = TRUE)), 
+                        aes(x = price_group, y = avg_rating)) +
+  geom_point() +
+  theme_bw() +
+  labs(title = "Review Distribution by Price in New York", x = "Price Group", y = "Average Rating")
+
+# Combine the plots 
+grid.arrange(paris_scatter, ams_scatter, ny_scatter, nrow = 3, heights= c(6, 6, 6))
+```
+
+\newpage 
+
+### The Number of Listings
+
+Plotting the total number of listings in each city helps to gain a better understanding of the size of the datasets for each city.
+
+```{r listings_per_location, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="The bar chart highlights a difference in the number of listings in each city, with Amsterdam having the lowest number of listings. On the other end, Paris has the highest number of listings and New York falls in between the two in terms of the number of listings.", fig.show="inline", fig.width = 6, fig.height = 4}
+# Count the number of listings
+paris_nr_listings <- nrow(Paris_listing)
+ams_nr_listings <- nrow(Amsterdam_listing)
+NY_nr_listings <- nrow(NY_listing)
+
+
+# Create a data frame
+Number_Listings <- data.frame(City = c("Paris", "Amsterdam", "New York"), Total = c(paris_nr_listings, ams_nr_listings, NY_nr_listings))
+
+#Bar chart 
+listings_plot <- ggplot(Number_Listings, aes(x = City, y = Total, fill = Total)) + 
+labs(title = "Number of Listings by City",
+       x = "City",
+       y = "Number of Listings") +
+geom_text(aes(label = Total), vjust = -0.5, size = 4) +
+geom_col() +
+theme_bw()
+plot(listings_plot)
+```
+
+\newpage 
+
+### The Types of Rooms Available in Each City
+
+Following on from the number of listings in each city, it may be interesting to explore the distribution of the types of rooms available in each city.
+
+```{r room_type, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Among the four types of rooms, entire home/apartment and private rooms are clearly the most popular across the three cities, whereas hotel rooms and shared rooms are relatively limited. As Paris boasts the highest number of listings, it's not surprising that it also has the largest share of entire home/apartment listings, followed by New York and then Amsterdam; which is also consistent with the trend for the total number of listings. Interestingly, however, is that Amsterdam has the largest share of listings of private rooms compared to New York and Paris. ", fig.show="inline", fig.width = 6, fig.height = 4}
+# Count listings per room type in Amsterdam
+room_type_ams <- Amsterdam_listing %>% 
+  group_by(room_type) %>% 
+  summarise(count = n()) %>% 
+  ungroup()
+
+# Count listings per room type in Paris
+room_type_paris <- Paris_listing %>% 
+  group_by(room_type) %>% 
+  summarise(count = n()) %>% 
+  ungroup()
+
+# Count listings per room type in New York
+room_type_ny <- NY_listing %>% 
+  group_by(room_type) %>% 
+  summarise(count = n()) %>% 
+  ungroup()
+
+# Create a data frame
+RoomType_Listings <- data.frame(City = c("Paris", "Amsterdam", "New York"),
+                                Count = c(room_type_paris$count, room_type_ams$count, room_type_ny$count),
+                                Room_Type = c(room_type_paris$room_type, room_type_ams$room_type, room_type_ny$room_type))
+
+#Create a stacked bar chart 
+ggplot(RoomType_Listings, aes(x = Room_Type, y = Count, fill = City)) +
+  geom_bar(stat="identity", position="stack") +
+  labs(title = "Most Popular Type of Room in Each City",
+       x = "Room Type", y = "Count", fill = "City") 
+```
+
+\newpage 
+
+### Listings Made by a Super Host
+Being a 'Super Host' on Airbnb is typically a positive indicator to potential customers as the listing can be trusted due to a number of factors, including previous positive experiences by other customers, a high response rate, among others.
+
+```{r super_host, echo=FALSE, message=FALSE, warning=FALSE}
+# Count the number of super hosts
+Paris_superhosts <- Paris_listing %>%
+  add_column(City = "Paris") %>%
+  count(City, host_is_superhost)
+
+NY_superhosts <- NY_listing %>%
+  add_column(City = "New York") %>%
+  count(City, host_is_superhost)
+
+Amsterdam_superhosts <- Amsterdam_listing %>%
+  add_column(City = "Amsterdam") %>%
+  count(City, host_is_superhost)
+
+# Combine into one
+superhost_total <- bind_rows(
+  "Paris" = Paris_superhosts,
+  "New York" = NY_superhosts,
+  "Amsterdam"= Amsterdam_superhosts
+)
+
+# Create the table
+superhost_table <- superhost_total %>%
+  mutate(host_is_superhost = if_else(is.na(host_is_superhost), "Not Indicated", 
+                                     if_else(host_is_superhost == "FALSE", "No", "Yes"))) %>% 
+  pivot_wider(names_from = City, values_from = n, values_fill = 0) %>%
+  arrange(match(host_is_superhost, c("Yes", "No", "Not Indicated"))) %>%
+  select(`Super Host Status` = host_is_superhost, Paris, Amsterdam, `New York`) %>%
+  knitr::kable(caption = "Number of Listings Made by Super Hosts in Each City", 
+               col.names = c("Super Host Status", "Paris", "Amsterdam", "New York")) %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), 
+                full_width = TRUE) %>% 
+  column_spec(1, border_right = TRUE) %>%
+  column_spec(2, border_right = TRUE) %>%
+  column_spec(3, border_right = TRUE)
+
+superhost_table
+```
+
+The number of listings that are made by a super host in each city evidently make up just a fraction of the total number of listings, which is as expected as the super host tag is only awarded to the most reputable hosts on the platform. Interestingly, the percentage of listings made by super hosts in Amsterdam and New York is approximately 20% of the total listings, whereas in Paris, this percentage is relatively lower.
+
+
+\newpage 
+
+### The Number of Guests
+
+The number of guests that a particular Airbnb can accommodate is also relevant to potential consumers when searching on the platform.
+
+```{r accommodates, echo=FALSE, message=FALSE, warning=FALSE, fig.cap = "The histograms indicate that a majority of listings, across the three cities, can  accommodate less than 5 guests. There are listings, however, that are able to host larger groups, especially in New York compared to Amsterdam and Paris.", fig.show='hold', fig.width = 6, fig.height = 4}
+# Create a histogram for Paris
+paris_hist <- ggplot(Paris_listing, aes(accommodates)) +
+  geom_histogram(bins = 20, alpha = 0.9) +
+  labs(title = "Accommodation \n Capacity in \n Paris", x = "Number of Guests", y = "")
+
+# Create a histogram for Amsterdam
+ams_hist <- ggplot(Amsterdam_listing, aes(accommodates)) +
+  geom_histogram(bins = 20, alpha = 0.9) +
+  labs(title = "Accommodation \n  Capacity in \n Amsterdam", x = "Number of Guests", y = "")
+
+# Create a histogram for New York
+ny_hist <- ggplot(NY_listing, aes(accommodates)) +
+  geom_histogram(bins = 20, alpha = 0.9) +
+  labs(title = "Accommodation \n Capacity in \n New York", x = "Number of Guests", y = "")
+
+# Combine the plots 
+grid.arrange(paris_hist, ams_hist, ny_hist, ncol = 3, widths = c(2, 2, 2))
+```
+
+### Overview
+
+This report on the exploration of the datasets for the three cities leads to a comprehensive overview of the data and highlights possible trends in key variables. Building on these insights, this study will focus on some of the variables highlighted in this report in order to perform an analysis on the fluctuations of price during select major holidays.

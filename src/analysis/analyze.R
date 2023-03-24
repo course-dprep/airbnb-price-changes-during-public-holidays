@@ -5,7 +5,7 @@ library(dplyr)
 library(ggplot2)
 
 # dir creation
-dir.create("../../gen/analysis/output/")
+dir.create("../../gen/analysis/output/", recursive = TRUE)
 
 # Load the dataset for each city ../../gen/data-preparation/output/
 Paris_dataset <- read_csv("../../gen/data-preparation/output/Paris_dataset.csv")

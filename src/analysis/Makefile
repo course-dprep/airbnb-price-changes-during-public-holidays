@@ -1,7 +1,5 @@
-DATA=../../data/original_datasets
-TEMP=../../gen/temp
-DP=../../src/data-preparation
-OUTPUT=../../gen/output
+DGA = ../../gen/analysis/
+DSA = ../../src/analysis
 
-Paris_result Amsterdam_result NY_result: analyze.R
-		Rscript analyze.R
+$(DGA)anova_result.csv: $(DSA)/analyze.R
+		R --vanilla < $(DSA)/analyze.R

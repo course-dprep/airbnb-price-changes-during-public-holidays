@@ -4,6 +4,9 @@ library(tidyverse)
 library(dplyr)
 library(ggplot2)
 
+# dir creation
+dir.create("../../gen/analysis/output/")
+
 # Load the dataset for each city ../../gen/data-preparation/output/
 Paris_dataset <- read_csv("../../gen/data-preparation/output/Paris_dataset.csv")
 Amsterdam_dataset<- read_csv("../../gen/data-preparation/output/Amsterdam_dataset.csv")

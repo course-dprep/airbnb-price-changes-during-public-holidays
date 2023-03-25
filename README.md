@@ -1,6 +1,5 @@
 # How do airbnb room prices change during public holidays?
 
-
 # 1.Research background and motivation
 Airbnb, short for “Air Bed and Breakfast”, is a well-known service that enables property owners to rent out their homes, apartments or individual rooms to travelers looking for alternatives to conventional hotels.  Since its establishment in 2008, Airbnb now operates in more than 220 countries with over 4 million listings (Airbnb, n.d.). The platform has created a new form of accommodation that is frequently less costly and more adaptable than traditional options. Nonetheless, Airbnb prices can vary based on different factors such as the area, time of year, and demand. 
 
@@ -52,6 +51,9 @@ install.packages("tidyverse")
 install.packages("readr")
 install.packages("dplyr")
 install.packages("ggplot2")
+install.packages(“knitr”)
+install.packages(“gridExtra”)
+install.packages(“kableExtra”)
 ```
 
 # 7.Running the code
@@ -95,7 +97,7 @@ The number of listings that are made by a super host in each city evidently make
 
 ### The Number of Guests
 The number of guests that a particular Airbnb can accommodate is also relevant to potential consumers when searching on the platform.
-![plots](https://raw.githubusercontent.com/edinescu/fork-price-change-public-holidays/master/images/nr%20of%20rooms.png) 
+![plots](https://raw.githubusercontent.com/edinescu/fork-price-change-public-holidays/master/images/nr%20of%20accommodates.png) 
 The histograms indicate that a majority of listings, across the three cities, can accommodate less than 5 guests. There are listings, however, that are able to host larger groups, especially in New York compared to Amsterdam and Paris.
 ## Conclusions
 The main conclusions that can be drawn from our analyses, and that consumers can take into account when choosing to go to Paris, New York or Amsterdam are: 
